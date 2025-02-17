@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录注册</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('图片1.png') no-repeat center center fixed; /* 替换 'your-image.jpg' 为你的背景图片路径 */
+    background-size: cover; /* 让背景图片铺满整个页面 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tab {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab:hover {
+    background-color: #134b2b;
+    border-radius: 5px;
+}
+
+.form {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #134b2b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #134b2b;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h2>欢迎</h2>
+            <div class="tabs">
+                <button class="tab" id="login-tab">登录</button>
+                <button class="tab" id="register-tab">注册</button>
+            </div>
+            <!-- 登录表单 -->
+            <div id="login-form" class="form">
+                <input type="text" id="login-username" placeholder="用户名" required>
+                <input type="password" id="login-password" placeholder="密码" required>
+                <button onclick="login()">登录</button>
+            </div>
+            <!-- 注册表单 -->
+            <div id="register-form" class="form hidden">
+                <input type="text" id="register-username" placeholder="用户名" required>
+                <input type="password" id="register-password" placeholder="密码" required>
+                <input type="password" id="register-confirm-password" placeholder="确认密码" required>
+                <button onclick="register()">注册</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+<script>
+    function login() {
+    const username = document.getElementById("login-username").value;
+    const password = document.getElementById("login-password").value;
+
+    if (username && password) {
+        // 模拟登录成功后跳转到新的页面
+        alert("登录成功！");
+        window.location.href = "https://jing-ya-s-dandy-site.webflow.io/";  // 替换为你希望跳转的目标链接
+    } else {
+        alert("请输入用户名和密码！");
+    }
+}
+
+function register() {
+    const username = document.getElementById("register-username").value;
+    const password = document.getElementById("register-password").value;
+    const confirmPassword = document.getElementById("register-confirm-password").value;
+
+    if (password !== confirmPassword) {
+        alert("两次输入的密码不一致！");
+        return;
+    }
+
+    if (username && password) {
+        alert("注册成功！");
+        // 这里可以执行注册后跳转的逻辑
+        window.location.href = "https://www.example.com";  // 替换为注册后的跳转链接
+    } else {
+        alert("请输入完整的信息！");
+    }
+}
+</script>
+</html>
